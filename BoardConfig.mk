@@ -45,7 +45,7 @@ TARGET_BOOTLOADER_BOARD_NAME := MSM8952
 TARGET_NO_BOOTLOADER := true
 
 # Kernel
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
@@ -61,14 +61,15 @@ TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 BOARD_KERNEL_SEPARATED_DT := true
 
 # Kernel Toolchain
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/aarch64/aarch64-linux-android-4.9-kernel/bin
 KERNEL_TOOLCHAIN_PREFIX := aarch64-linux-android-
-TARGET_GCC_VERSION_ARM64 := 5.x-kernel
+TARGET_GCC_VERSION_ARM64 := 5.x-kernel-linaro
+TARGET_GCC_VERSION_ARM64_ROM := 5.x-kernel-linaro
+USE_CLANG_PLATFORM_BUILD := true
 
 # Optimizations
 STRICT_ALIASING := false
-CLANG_O3 := false
-ENABLE_GCCONLY := true
+CLANG_O3 := true
+ENABLE_GCCONLY := false
 GRAPHITE_OPTS := false
 USE_PIPE := true
 
@@ -116,16 +117,6 @@ BOARD_HARDWARE_CLASS += hardware/cyanogen/cmhw
 # CNE
 BOARD_USES_QCNE := true
 TARGET_LDPRELOAD := libNimsWrap.so
-
-# Dex pre-opt to speed up initial boot
-ifeq ($(HOST_OS),linux)
-  ifneq ($(TARGET_BUILD_VARIANT),eng)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
-    endif
-  endif
-endif
-WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
 
 # Display
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
