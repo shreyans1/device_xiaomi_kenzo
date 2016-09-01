@@ -44,3 +44,9 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     BUILD_FINGERPRINT=Xiaomi/kenzo/kenzo:6.0.1/MMB29M/6.7.21:user/release-keys \
     PRIVATE_BUILD_DESC="kenzo-user 6.0.1 MMB29M 6.7.21 release-keys"
 endif
+
+# Cardinal Developer
+RODUCT_BUILD_PROP_OVERRIDES += DEVICE_MAINTAINERS="Ashish Arora &#40;<a href="http://gg.gg/ashishxda">Ashish0077</a>&#41;"
+
+# Build Official
+CARDINAL_RELEASE := true
