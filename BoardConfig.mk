@@ -64,12 +64,11 @@ BOARD_KERNEL_SEPARATED_DT := true
 KERNEL_TOOLCHAIN_PREFIX := aarch64-linux-android-
 TARGET_GCC_VERSION_ARM64 := 5.x-kernel-linaro
 TARGET_GCC_VERSION_ARM64_ROM := 5.x-kernel-linaro
-USE_CLANG_PLATFORM_BUILD := true
 
 # Optimizations
 STRICT_ALIASING := false
-CLANG_O3 := true
-ENABLE_GCCONLY := false
+CLANG_O3 := false
+ENABLE_GCCONLY := true
 GRAPHITE_OPTS := false
 USE_PIPE := true
 
