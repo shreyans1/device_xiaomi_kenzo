@@ -1,2 +1,2 @@
 PRODUCT_MAKEFILES := \
-  $(LOCAL_DIR)/cardinal_kenzo.mk
+  $(LOCAL_DIR)/aosip_kenzo.mk
